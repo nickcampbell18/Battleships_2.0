@@ -3,7 +3,7 @@ class CreateShips < ActiveRecord::Migration
     create_table :ships do |t|
       t.string :h
       t.string :v
-      t.string :l
+      t.integer :l
       t.references :player
       t.timestamps
     end

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20111025184211) do
   create_table "ships", :force => true do |t|
     t.string   "h"
     t.string   "v"
-    t.string   "l"
+    t.integer  "l"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"

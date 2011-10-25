@@ -11,10 +11,23 @@ class Player < ActiveRecord::Base
 
   after_initialize :generate_uuid
 
-  validates :name, {:presence => true, :length => { :in => 4..30 }}
+  validates :name, :length => { :in => 4..30 }
   validates :game_id, :presence => true
+  
+  validate :no_more_than_two_players
 
   def generate_uuid
     self.uuid ||= rand(36**8).to_s(36)
+  end
+
+  def as_json(params={})
+    params.merge! :except => [:id,:created_at]
+    super(params)
+  end
+  
+  def no_more_than_two_players
+    if !game.players.member?(self) #If you aren't already saved..
+      errors[:base] << "There can only be two players" if game.players.count == 2
+    end
   end
 end
