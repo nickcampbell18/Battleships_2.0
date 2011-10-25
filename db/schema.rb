@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(:version => 20111025184211) do
   create_table "games", :force => true do |t|
     t.string   "name"
     t.string   "uuid"
-    t.boolean  "started"
+    t.boolean  "started",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "messages", :force => true do |t|
     t.string   "text"
-    t.integer  "priority"
+    t.integer  "priority",   :default => 0
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,14 +32,18 @@ ActiveRecord::Schema.define(:version => 20111025184211) do
     t.string   "name"
     t.string   "uuid"
     t.integer  "game_id"
+    t.text     "fired_and_missed_shots",    :default => "[]"
+    t.text     "fired_and_hit_shots",       :default => "[]"
+    t.text     "occupied_and_missed_cells", :default => "[]"
+    t.text     "occupied_and_lost_cells",   :default => "[]"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "ships", :force => true do |t|
-    t.string   "home"
-    t.string   "vector"
-    t.string   "length"
+    t.string   "h"
+    t.string   "v"
+    t.string   "l"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
