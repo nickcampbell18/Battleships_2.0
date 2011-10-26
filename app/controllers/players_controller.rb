@@ -1,12 +1,7 @@
 class PlayersController < ApplicationController
 
   respond_to :html, :json
-  
-  def index
-    @g = Game.find_by_uuid(params[:game_id])
-    @players = @g.players.all
-    respond_with @players
-  end
+  before_filter :logged_in, :permission_granted
   
   def show
     @player = Player.find_by_uuid(params[:id])

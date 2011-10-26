@@ -30,7 +30,7 @@ class Ship < ActiveRecord::Base
   end
 
   def as_json(args={})
-    super(:methods => [:cells, :name], :only => [:player_id])
+    super(:methods => [:cells, :name], :only => :h)
   end
 
   #private

@@ -1,6 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :game
   has_many :ships
+  has_many :messages
 
   serialize :fired_and_missed_shots, JSON
   serialize :fired_and_hit_shots, JSON
