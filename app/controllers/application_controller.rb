@@ -8,25 +8,24 @@ class ApplicationController < ActionController::Base
   
   def login
     session[:player_uuid] = params[:uuid]
-    redirect_to '/p/gvn2o3b4.json'
+    player = Player.find_by_uuid(params[:uuid])
+    redirect_to player
   end
 
   private
   
   def logged_in
-    true
-    #Does nothing yet
+    current_user == false ? false : true
   end
   
   def permission_granted
     player_id = params[:player_id] || params[:id]
     # 403 Not Authorized error
-    render :text => '', :status => 403 unless player_id == current_user
+    render :text => '', :status => 403 if player_id != current_user
   end
   
   def current_user
     p = Player.find_by_uuid(session[:player_uuid])
-    # Auth override
     p.nil? ? false : p.uuid
   end
   

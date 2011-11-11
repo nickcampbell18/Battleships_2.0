@@ -7,4 +7,5 @@ Battleships::Application.routes.draw do
   end
   match '/login' => 'application#login'
   
+  
 end
