@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+html, body {
+  min-height: 100%;
+  margin: 0;
+}
+div#container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  vertical-align: center;
+  background-image: -webkit-linear-gradient(bottom, rgb(7,29,46) 0%, rgb(0,57,97) 100%);
+}
+#your-ships, #their-ships {
+  display: inline-block;
+  vertical-align: top;
+}
+#your-ships {
+  width: 200px;
+  height: 200px;
+}
+#their-ships {
+  width: 400px;
+  height: 400px;
+}
+#their-ships td:hover {
+  /* Todo */
+  background-color: black;
+}
+.ships-grid h1 {
+  margin: 0;
+  padding: 0;
+  font-family: Ubuntu;
+  font-size: 1.5em;
+  display: none;
+  font-weight: bold;
+}
+.ships-grid table {
+  width: 100%;
+  height: 100%;
+}
+.ships-grid td {
+  background-color: rgba(255,255,255,0.1);
+}
+.ships-grid td.occupied {
+  background-color: rgba(255,255,255,0.7);
+}
+.ships-grid td.miss {
+  background-color: rgba(127,255,0,0.7)!important;
+  -webkit-border-radius: 100%;
+}
+.ships-grid td.hit {
+  background-color: rgba(220,20,60,0.9)!important;
+}
+
+.ships-grid td.end-right {
+  -webkit-border-radius: 0 100% 100% 0!important;
+}
+.ships-grid td.end-left {
+  -webkit-border-radius: 100% 0 0 100%!important;
+}
+.ships-grid td.end-top {
+  -webkit-border-radius: 100% 100% 0 0!important;
+}
+.ships-grid td.end-bottom {
+  -webkit-border-radius: 0 0 100% 100%!important;
+}
+</style>
+
+</head>
+<body>
+<div id="container">
+<div id="your-ships" class="ships-grid">
+  <h1>Your ships</h1>
+  <table cellspacing="5">
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td class="hit end-left"></td><td class="occupied"></td><td class="occupied"></td><td class="occupied end-right"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="occupied end-top"></td><td></td></tr>
+    <tr><td class="miss"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="occupied"></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="hit end-bottom"></td><td class="miss"></td></tr>
+    <tr><td></td><td></td><td class="miss"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td class="occupied end-left"></td><td class="occupied"></td><td class="hit occupied"></td><td class="hit occupied"></td><td class="occupied end-right"></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="occupied end-top"></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="occupied end-bottom"></td></tr>
+  </table>
+</div>
+
+<div id="their-ships" class="ships-grid">
+  <h1>Targeting</h1>
+  <table cellspacing="5">
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>  <tr><td></td><td></td><td class="hit"></td><td class="hit"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td class="miss"></td><td></td><td></td><td></td><td></td><td></td><td class="hit"></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td class="miss"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td class="miss"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>    <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+</div>
+</div>
+</body>
+</html>
